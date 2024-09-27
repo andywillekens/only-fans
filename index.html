@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Only fans - Andy Willekens</title>
+  <meta name="description" content="Opzoek naar meer van mij? Exclusive content die ik niet op mijn andere socials deel!">
+  <!-- favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    html, body{
+      margin: 0;
+      padding: 0;
+      overflow:hidden;
+      height: 100vh;
+      width: 100vw;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .rotate-my-blades-babe{
+      width: 300vh;
+      height: 300vh;
+      background-image: url('./assets/blowing.gif');
+      animation: come 10s infinite ease-in-out;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform-origin: 50% 50%;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 1s ease-in-out
+    }
+
+    .rotate-my-blades-babe.ohyeah{
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    button{
+      padding: 10px 20px;
+      background-color: #00AEEF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      transition: all 0.3s ease-in-out;
+    }
+
+    @keyframes come {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+      100% {
+        transform: rotate(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="rotate-my-blades-babe"></div>
+  <button onClick="startMeUp()">Bekijk gevoelige content</button>
+  <script>
+    let sound;
+
+    const myFans = document.querySelector('.rotate-my-blades-babe');
+
+    function startMeUp() {
+    if (!sound) {
+      sound = new Audio("./assets/so-hot.mp3");
+      sound.loop = true;
+      myFans.classList.add('ohyeah');
+    }
+
+    if (sound.paused) {
+      sound.play().catch(() => {
+      console.error("Failed to play the sound.");
+      });
+    }
+    }
+  </script>
+  </body>
+</html>
